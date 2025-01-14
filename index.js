@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
             const html = response.data
             //nos traemos el titulo de la pagina con //!CHEERIO
             //con esto capturamos cada parte que necesitamos
+            //Analiza y manipula HTML
             const $ = cheerio.load(html)
 
             
