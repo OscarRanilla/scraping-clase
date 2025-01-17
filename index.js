@@ -17,13 +17,13 @@ app.get('/', (req, res) => {
             //nos traemos el titulo de la pagina con //!CHEERIO
             //con esto capturamos cada parte que necesitamos
             //Analiza y manipula HTML
-            const $ = cheerio.load(html)
-
             
-
+            const $ = cheerio.load(html)
+            //console.log(html)
+            
             const pageTitle = $('title').text()//ese .text es la forma en que
+            //console.log(pageTitle)
             //nos queremos traer el titulo
-
             //Vamos a coger todos los links y las imagenes 
 
             const links = [];
@@ -34,10 +34,14 @@ app.get('/', (req, res) => {
                 links.push(link)
             })
 
+            //console.log(links)
+
             $('img').each((index, element) => {
                 const img = $(element).attr('src')
                 imgs.push(img)
             })
+
+            //console.log(imgs)
             
             res.send(`
                 <h1>${pageTitle}</h1>
